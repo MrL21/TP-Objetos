@@ -34,7 +34,7 @@ object lucia {
 
 object joaquin {
 	var grupo = "Pimpinela"
-	method habilidad(presentacion) {
+	method habilidad() {
 		if(grupo)
 			return 25
 		return 20
