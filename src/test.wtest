@@ -1,0 +1,11 @@
+import musicos.*
+import canciones.*
+import lugares.*
+import presentaciones.*
+
+test "La habilidad de Joaquín cuando canta en el grupo Pimpinela es 25" 
+{
+
+	assert.equals(25,joaquin.habilidad())
+
+}
