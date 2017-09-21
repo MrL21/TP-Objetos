@@ -40,7 +40,7 @@ object lucia {
 		return 70
 	}
 	method puedeInterpretar(cancion) {
-		return cancion.letra().contains("familia")
+		return cancion.letra().contains("familia")|| cancion.letra().contains("Familia") 
 	}
 	method cachet(presentacion) {
 		if(presentacion.fecha() > fechaSentinela)
