@@ -3,9 +3,14 @@ import canciones.*
 import lugares.*
 import presentaciones.*
 
-test "La habilidad de Joaquín cuando canta en el grupo Pimpinela es 25" 
-{
+test "La habilidad de Joaquín cuando canta en el grupo Pimpinela es 25" {
 
 	assert.equals(25,joaquin.habilidad())
 
+}
+
+test "Joaquín canta en el grupo Pimpinela, y decide lanzar su carrera solista (deja el grupo). Queremos conocer su habilidad."{
+	
+	joaquin.dejaGrupo()
+	assert.equals(20,joaquin.habilidad())
 }

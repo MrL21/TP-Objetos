@@ -3,9 +3,15 @@ import guitarras.*
 object joaquin {
 	var grupo = "Pimpinela"
 	method habilidad() {
-		if(grupo)
+		if(self.estaEnGrupo())
 			return 25
 		return 20
+	}
+	method estaEnGrupo(){
+		return grupo!=""
+	}
+	method dejaGrupo(){
+		grupo =""
 	}
 	method puedeInterpretar(cancion) {
 		return cancion.duracion() > 300
