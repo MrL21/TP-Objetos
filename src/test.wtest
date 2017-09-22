@@ -39,3 +39,14 @@ test "Alguien trata mal a la Gibson y ahora no está sana.
 	luis.toca(gibson)
 	assert.equals(40,luis.habilidad())
 }
+
+test "Queremos saber si Joaquín interpreta bien la canción “La Familia”"{
+	const laFamilia = new Cancion(264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
+	assert.notThat(joaquin.puedeInterpretar(laFamilia))
+}
+
+test "Queremos saber si Joaquín interpreta bien la canción “Cisne”"{
+	var cisne = new Cancion(312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
+	assert.that(joaquin.puedeInterpretar(cisne))
+}
+
