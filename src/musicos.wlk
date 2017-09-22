@@ -14,6 +14,12 @@ object joaquin {
 	method dejaGrupo(){
 		grupo =""
 	}
+	method solo(){
+		solo=true
+	}
+	method grupo(){
+		solo=false
+	}
 	method puedeInterpretar(cancion) {
 		return cancion.duracion() > 300
 	}
