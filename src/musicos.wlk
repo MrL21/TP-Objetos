@@ -2,6 +2,7 @@ import guitarras.*
 
 object joaquin {
 	var grupo = "Pimpinela"
+	var solo = false
 	method habilidad() {
 		if(self.estaEnGrupo())
 			return 25
@@ -17,9 +18,9 @@ object joaquin {
 		return cancion.duracion() > 300
 	}
 	method cachet(presentacion) {
-		if(presentacion.lugar().capacidad() > 5000)
-			return 500
-		return 400
+		if(solo)
+			return 100
+		return 50
 	}
 }
 object lucia {
@@ -40,9 +41,9 @@ object lucia {
 		return cancion.letra().contains("familia")|| cancion.letra().contains("Familia") 
 	}
 	method cachet(presentacion) {
-		if(presentacion.fecha() > fechaSentinela)
-			return 1200
-		return 1000
+		if(presentacion.lugar().concurrido(presentacion))
+			return 500
+		return 400
 	}
 }
 
@@ -58,8 +59,8 @@ object luis {
 	method habilidad()=habilidad
 	method puedeInterpretar(cancion) = true
 	method cachet(presentacion) {
-		if(presentacion.lugar().capacidad() > 5000)
-			return 500
-		return 400
+		if(presentacion.fecha() > fechaSentinela)
+			return 1200
+		return 1000
 	}
 }
