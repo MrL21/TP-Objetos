@@ -46,7 +46,8 @@ test "Queremos saber si Joaquín interpreta bien la canción “La Familia”"{
 }
 
 test "Queremos saber si Joaquín interpreta bien la canción “Cisne”"{
-	var cisne = new Cancion(312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
+	const cisne = new Cancion(312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
 	assert.that(joaquin.puedeInterpretar(cisne))
 }
+
 
