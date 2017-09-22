@@ -17,3 +17,7 @@ test "Lucía canta en el grupo Pimpinela. Queremos saber su habilidad."{
 	assert.equals(50,lucia.habilidad())
 }
 
+test "Lucía canta en el grupo Pimpinela, y lanza su carrera solista (deja el grupo). Queremos conocer su habilidad."{
+	lucia.dejaGrupo()
+	assert.equals(70,lucia.habilidad())
+}

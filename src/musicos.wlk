@@ -33,6 +33,9 @@ object lucia {
 	method estaEnGrupo(){
 		return grupo!=""
 	}
+	method dejaGrupo(){
+		grupo =""
+	}
 	method puedeInterpretar(cancion) {
 		return cancion.letra().contains("familia")|| cancion.letra().contains("Familia") 
 	}
