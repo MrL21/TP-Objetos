@@ -1,15 +1,15 @@
 
 object laTrastienda {
-	method capacidad(presentacion) {
-		if(presentacion.fecha().dayOfWeek().equals(6))
+	method capacidad(fecha) {
+		if(fecha.dayOfWeek().equals(6))
 			return 700
 		else
 			return 400
 	}
-	method concurrido(presentacion)= self.capacidad(presentacion)>5000
+	method concurrido(fecha)= self.capacidad(fecha)>5000
 }
 object lunaPark {
-	method capacidad(presentacion) = 9290
-	method concurrido(presentacion)= self.capacidad(presentacion)>5000
+	method capacidad(fecha) = 9290
+	method concurrido(fecha)= self.capacidad(fecha)>5000
 	
 }

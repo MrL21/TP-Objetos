@@ -83,4 +83,7 @@ joaquin.solo()
 assert.equals(100,joaquin.cachet(presentacionUno))
 }
 
+test "Queremos saber la capacidad de La Trastienda para el 05 de agosto del 2017"{
+	assert.equals(700,laTrastienda.capacidad(new Date(05,08,2017)))
+}
 

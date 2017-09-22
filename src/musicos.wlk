@@ -47,7 +47,7 @@ object lucia {
 		return cancion.letra().contains("familia")|| cancion.letra().contains("Familia") 
 	}
 	method cachet(presentacion) {
-		if(presentacion.lugar().concurrido(presentacion))
+		if(presentacion.lugar().concurrido(presentacion.fecha()))
 			return 500
 		return 400
 	}
