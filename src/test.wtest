@@ -50,4 +50,13 @@ test "Queremos saber si Joaquín interpreta bien la canción “Cisne”"{
 	assert.that(joaquin.puedeInterpretar(cisne))
 }
 
+test "Queremos saber si Lucía interpreta bien la canción “La Familia”"{
+	const laFamilia = new Cancion(264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
+	assert.that(lucia.puedeInterpretar(laFamilia))
+}
+
+test "Queremos saber si Lucía interpreta bien la canción “Cisne”"{
+	const cisne = new Cancion(312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
+	assert.notThat(lucia.puedeInterpretar(cisne))
+}
 
