@@ -47,12 +47,15 @@ object lucia {
 }
 
 object luis {
-	var guitarra = fender
+	var habilidad
+	var guitarras = #{fender,gibson}
 	const fechaSentinela = new Date(1,9,2017)
-	method guitarra(nuevaGuitarra) {
-		guitarra=nuevaGuitarra
+	method toca(guitarra){
+		if (guitarras.contains( guitarra)){
+			habilidad = (8 * (guitarra.valor())).min(100)
+		}
 	}
-	method habilidad() = 8*guitarra.valor()
+	method habilidad()=habilidad
 	method puedeInterpretar(cancion) = true
 	method cachet(presentacion) {
 		if(presentacion.lugar().capacidad() > 5000)

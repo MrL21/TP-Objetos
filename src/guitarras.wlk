@@ -9,4 +9,7 @@ object gibson {
 			return 15
 		return 5
 	}
+	method fueMalTratada(){
+		sana = false
+	}
 }

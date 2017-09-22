@@ -1,4 +1,5 @@
 import musicos.*
+import guitarras.*
 import canciones.*
 import lugares.*
 import presentaciones.*
@@ -20,4 +21,21 @@ test "Lucía canta en el grupo Pimpinela. Queremos saber su habilidad."{
 test "Lucía canta en el grupo Pimpinela, y lanza su carrera solista (deja el grupo). Queremos conocer su habilidad."{
 	lucia.dejaGrupo()
 	assert.equals(70,lucia.habilidad())
+}
+
+test "Luis Alberto toca con la Fender. Queremos saber su habilidad."{
+	luis.toca(fender)
+	assert.equals(80,luis.habilidad())
+}
+
+test "Luis Alberto toca ahora con la Gibson sana. Queremos saber su habilidad."{
+	luis.toca(gibson)
+	assert.equals(100,luis.habilidad())
+}
+
+test "Alguien trata mal a la Gibson y ahora no está sana.
+"{
+	gibson.fueMalTratada()
+	luis.toca(gibson)
+	assert.equals(40,luis.habilidad())
 }
