@@ -110,3 +110,13 @@ test "Queremos saber cuánto cobra Luis Alberto por la presentación de La Trastie
 	const presentacionDos = new Presentacion(new Date(15,11,2017), laTrastienda, #{luis, joaquin, lucia})
 	assert.equals(1200,luis.cachet(presentacionDos))
 }
+
+test "Queremos saber el costo de la presentación del Luna Park"{
+	const presentacionUno = new Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia})
+	assert.equals(1550,presentacionUno.costo())
+}
+
+test "Queremos saber el costo de la presentación de la Trastienda el 15/11/2017"{
+	const presentacionDos = new Presentacion(new Date(15,11,2017), laTrastienda, #{luis, joaquin, lucia})
+	assert.equals(1650,presentacionDos.costo())
+}

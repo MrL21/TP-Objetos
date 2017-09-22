@@ -36,7 +36,7 @@ class Presentacion {
 	method fecha() = fecha
 	method lugar() = lugar
 	method costo() {
-		return musicos.map({unMusico => unMusico.cachet()}).sum()
+		return musicos.map({unMusico => unMusico.cachet(self)}).sum()
 	}
 	
 }
