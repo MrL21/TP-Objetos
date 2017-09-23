@@ -43,7 +43,7 @@ object lucia inherits Musico {
 		grupo =""
 	}
 	override method puedeInterpretar(cancion) {
-		return cancion.letra().contains("familia")|| cancion.letra().contains("Familia") 
+		return cancion.letra().toLower().contains("familia")
 	}
 	override method cachet(presentacion) {
 		if(presentacion.lugar().concurrido(presentacion.fecha()))
