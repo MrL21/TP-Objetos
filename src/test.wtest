@@ -35,7 +35,7 @@ test "Luis Alberto toca ahora con la Gibson sana. Queremos saber su habilidad."{
 
 test "Alguien trata mal a la Gibson y ahora no está sana.
 "{
-	gibson.fueMalTratada()
+	gibson.malTratar()
 	luis.toca(gibson)
 	assert.equals(40,luis.habilidad())
 }

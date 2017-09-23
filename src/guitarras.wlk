@@ -1,15 +1,20 @@
-
-object fender {
-	method valor() = 10
+class Guitarra { 
+	method valor()
 }
-object gibson {
+object fender inherits Guitarra {
+	override method valor() = 10
+}
+object gibson inherits Guitarra {
 	var sana = true
-	method valor() {
+	override method valor() {
 		if(sana)
 			return 15
 		return 5
 	}
-	method fueMalTratada(){
+	method malTratar(){
 		sana = false
+	}
+	method reparar(){
+		sana = true
 	}
 }
