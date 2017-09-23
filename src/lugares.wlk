@@ -1,15 +1,15 @@
-
-object laTrastienda {
-	method capacidad(fecha) {
-		if(fecha.dayOfWeek().equals(6))
-			return 700
-		else
-			return 400
-	}
+class Lugar {
 	method concurrido(fecha)= self.capacidad(fecha)>5000
+	method capacidad(fecha)
 }
-object lunaPark {
-	method capacidad(fecha) = 9290
-	method concurrido(fecha)= self.capacidad(fecha)>5000
+object laTrastienda inherits Lugar {
+	override method capacidad(fecha) {
+		//Si es Sabado 700, sino 400
+		return (if(fecha.dayOfWeek().equals(6))
+			700 else 400)
+	}
+}
+object lunaPark inherits Lugar {
+	override method capacidad(fecha) = 9290
 	
 }
