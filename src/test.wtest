@@ -78,6 +78,7 @@ test "Queremos saber cuánto cobra Joaquín por la presentación del Luna Park"{
 test "Modificar la presentación de la Trastienda para que solo actúe Joaquín.
 Queremos saber cuánto cobra Joaquín por la presentación de la Trastienda del 15/11/2017
 "{
+	joaquin.dejaGrupo()
 	const presentacionUno = new Presentacion(new Date(15,11,2017), lunaPark, #{joaquin})
 	assert.equals(100,joaquin.cachet(presentacionUno))
 }

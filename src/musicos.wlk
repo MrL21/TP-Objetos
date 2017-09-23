@@ -24,9 +24,9 @@ object joaquin inherits Musico {
 		return cancion.duracion() > 300
 	}
 	override method cachet(presentacion) {
-		if(solo)
-			return 100
-		return 50
+		if(self.estaEnGrupo())
+			return 50
+		return 100
 	}
 }
 object lucia inherits Musico {
