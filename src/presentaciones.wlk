@@ -40,5 +40,9 @@ class Presentacion {
 	}
 	
 }
+
+//object presentacionUno inherits Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia}) {}
+//object presentacionDos inherits Presentacion(new Date(15,11,2017), laTrastienda, #{luis, joaquin, lucia}) {}
+
 //const presentacionUno = new Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia})
-//const presentacionDoss = new Presentacion(new Date(15,11,2017), laTrastienda, #{luis, joaquin, lucia})
+//const presentacionDos = new Presentacion(new Date(15,11,2017), laTrastienda, #{luis, joaquin, lucia})
