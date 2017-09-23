@@ -1,9 +1,15 @@
 import guitarras.*
 
-object joaquin {
+class Musico {
+	method habilidad()
+	method puedeInterpretar(cancion)
+	method cachet(presentacion)
+}
+
+object joaquin inherits Musico {
 	var grupo = "Pimpinela"
 	var solo = false
-	method habilidad() {
+	override method habilidad() {
 		if(self.estaEnGrupo())
 			return 25
 		return 20
@@ -14,25 +20,18 @@ object joaquin {
 	method dejaGrupo(){
 		grupo =""
 	}
-	method solo(){
-		solo=true
-	}
-	method grupo(){
-		solo=false
-	}
-	method puedeInterpretar(cancion) {
+	override method puedeInterpretar(cancion) {
 		return cancion.duracion() > 300
 	}
-	method cachet(presentacion) {
+	override method cachet(presentacion) {
 		if(solo)
 			return 100
 		return 50
 	}
 }
-object lucia {
+object lucia inherits Musico {
 	var grupo = "Pimpinela"
-	const fechaSentinela = new Date(1,9,2017)
-	method habilidad() {
+	override method habilidad() {
 		if(self.estaEnGrupo())
 			return 50
 		return 70
@@ -43,30 +42,30 @@ object lucia {
 	method dejaGrupo(){
 		grupo =""
 	}
-	method puedeInterpretar(cancion) {
+	override method puedeInterpretar(cancion) {
 		return cancion.letra().contains("familia")|| cancion.letra().contains("Familia") 
 	}
-	method cachet(presentacion) {
+	override method cachet(presentacion) {
 		if(presentacion.lugar().concurrido(presentacion.fecha()))
 			return 500
 		return 400
 	}
 }
 
-object luis {
+object luis inherits Musico {
 	var habilidad
 	var guitarras = #{fender,gibson}
 	const fechaSentinela = new Date(1,9,2017)
+	override method habilidad()=habilidad
+	override method puedeInterpretar(cancion) = true
+	override method cachet(presentacion) {
+		if(presentacion.fecha() > fechaSentinela)
+			return 1200
+		return 1000
+	}
 	method toca(guitarra){
 		if (guitarras.contains( guitarra)){
 			habilidad = (8 * (guitarra.valor())).min(100)
 		}
-	}
-	method habilidad()=habilidad
-	method puedeInterpretar(cancion) = true
-	method cachet(presentacion) {
-		if(presentacion.fecha() > fechaSentinela)
-			return 1200
-		return 1000
 	}
 }
