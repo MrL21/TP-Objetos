@@ -71,16 +71,15 @@ test "Queremos saber si Luis Alberto interpreta bien la canción “Cisne”"{
 }
 
 test "Queremos saber cuánto cobra Joaquín por la presentación del Luna Park"{
-const presentacionUno = new Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia})
-assert.equals(50,joaquin.cachet(presentacionUno))
+	const presentacionUno = new Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia})
+	assert.equals(50,joaquin.cachet(presentacionUno))
 }
 
 test "Modificar la presentación de la Trastienda para que solo actúe Joaquín.
 Queremos saber cuánto cobra Joaquín por la presentación de la Trastienda del 15/11/2017
 "{
-const presentacionUno = new Presentacion(new Date(15,11,2017), lunaPark, #{joaquin})
-joaquin.solo()
-assert.equals(100,joaquin.cachet(presentacionUno))
+	const presentacionUno = new Presentacion(new Date(15,11,2017), lunaPark, #{joaquin})
+	assert.equals(100,joaquin.cachet(presentacionUno))
 }
 
 test "Queremos saber la capacidad de La Trastienda para el 05 de agosto del 2017"{
@@ -92,8 +91,8 @@ test "Queremos saber la capacidad de La Trastienda para el 08 de agosto del 2017
 }
 
 test "Queremos saber cuánto cobra Lucía por la presentación del Luna Park"{
-const presentacionUno = new Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia})
-assert.equals(500,lucia.cachet(presentacionUno))
+	const presentacionUno = new Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia})
+	assert.equals(500,lucia.cachet(presentacionUno))
 }
 
 test "Queremos saber cuánto cobra Lucía por la presentación de la Trastienda"{
@@ -102,8 +101,8 @@ test "Queremos saber cuánto cobra Lucía por la presentación de la Trastienda"{
 }
 
 test "Queremos saber cuánto cobra Luis Alberto por la presentación del Luna Park"{
-const presentacionUno = new Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia})
-assert.equals(1000,luis.cachet(presentacionUno))
+	const presentacionUno = new Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia})
+	assert.equals(1000,luis.cachet(presentacionUno))
 }
 
 test "Queremos saber cuánto cobra Luis Alberto por la presentación de La Trastienda"{
