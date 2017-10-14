@@ -4,6 +4,15 @@ class Musico {
 	var grupo = ""
 	var habilidad = 0
 	var albumes = #{}
+	constructor(_habilidad) {
+		habilidad = _habilidad
+	}
+	constructor(_habilidad, _grupo) = self(_habilidad) {
+		grupo = _grupo
+	}
+	constructor(_habilidad, _grupo, _albumes)  = self(_habilidad, _grupo) {
+		albumes = _albumes
+	}
 	method habilidad() {return habilidad}
 	method solista() {return grupo!=""}
 	method estaEnGrupo() {
@@ -21,6 +30,9 @@ class Musico {
 	}
 	method agregarAlbumes(_albumes) {
 		albumes.addAll(_albumes)
+	}
+	method albumes(_albumes) {
+		albumes = _albumes
 	}
 	method canciones () {
 		var canciones = #{}
@@ -56,8 +68,13 @@ class Musico {
 
 class MusicoDeGrupo inherits Musico {
 	const plusPorGrupo
-	constructor(_habilidad, _plusPorGrupo) {
-		habilidad= _habilidad
+	constructor(_habilidad, _plusPorGrupo) = super(_habilidad) {
+		plusPorGrupo = _plusPorGrupo
+	}
+	constructor(_habilidad, _grupo, _plusPorGrupo) = super(_habilidad, _grupo) {
+		plusPorGrupo = _plusPorGrupo
+	}
+	constructor(_habilidad, _grupo, _albumes, _plusPorGrupo) = super(_habilidad, _grupo, _albumes) {
 		plusPorGrupo = _plusPorGrupo
 	}
 	override method habilidad() {
@@ -77,8 +94,13 @@ class MusicoDeGrupo inherits Musico {
 class VocalistaPopular inherits Musico {
 	const palabraInspiradora
 	const restoPorGrupo = 20
-	constructor(_habilidad, _palabraInspiradora) {
-		habilidad = _habilidad
+	constructor(_habilidad, _palabraInspiradora) = super(_habilidad) {
+		palabraInspiradora = _palabraInspiradora
+	}
+	constructor(_habilidad, _grupo, _palabraInspiradora) = super(_habilidad, _grupo) {
+		palabraInspiradora = _palabraInspiradora
+	}
+	constructor(_habilidad, _grupo, _albumes, _palabraInspiradora) = super(_habilidad, _grupo, _albumes) {
 		palabraInspiradora = _palabraInspiradora
 	}
 	override method habilidad() {
