@@ -12,8 +12,10 @@ describe "Tests Entrega 1" {
 	const presentacionUno
 	const presentacionDos
 	fixture {
-		laFamilia = new Cancion(264, "La Familia", "Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
-		cisne = new Cancion(312, "Cisne", "Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
+		laFamilia = new Cancion(264, 
+		"La Familia", "Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
+		cisne = new Cancion(312, 
+		"Cisne", "Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
 	
 		lucia = new VocalistaPopular(70, "familia")
 		lucia.unirseAGrupo("Pimpinela")
@@ -34,7 +36,8 @@ describe "Tests Entrega 1" {
 	
 	}
 	
-	test "Joaquín canta en el grupo Pimpinela, y decide lanzar su carrera solista (deja el grupo). Queremos conocer su habilidad."{
+	test "Joaquín canta en el grupo Pimpinela, y decide lanzar su carrera 
+		solista (deja el grupo). Queremos conocer su habilidad."{
 		joaquin.dejarGrupo()
 		assert.equals(20,joaquin.habilidad())
 	}
@@ -43,7 +46,8 @@ describe "Tests Entrega 1" {
 		assert.equals(50,lucia.habilidad())
 	}
 	
-	test "Lucía canta en el grupo Pimpinela, y lanza su carrera solista (deja el grupo). Queremos conocer su habilidad."{
+	test "Lucía canta en el grupo Pimpinela, y lanza su carrera solista 
+		(deja el grupo). Queremos conocer su habilidad."{
 		lucia.dejarGrupo()
 		assert.equals(70,lucia.habilidad())
 	}

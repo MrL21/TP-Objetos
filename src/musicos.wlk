@@ -74,7 +74,8 @@ class MusicoDeGrupo inherits Musico {
 	constructor(_habilidad, _grupo, _plusPorGrupo) = super(_habilidad, _grupo) {
 		plusPorGrupo = _plusPorGrupo
 	}
-	constructor(_habilidad, _grupo, _albumes, _plusPorGrupo) = super(_habilidad, _grupo, _albumes) {
+	constructor(_habilidad, _grupo, _albumes, _plusPorGrupo) = 
+	super(_habilidad, _grupo, _albumes) {
 		plusPorGrupo = _plusPorGrupo
 	}
 	override method habilidad() {
@@ -97,10 +98,12 @@ class VocalistaPopular inherits Musico {
 	constructor(_habilidad, _palabraInspiradora) = super(_habilidad) {
 		palabraInspiradora = _palabraInspiradora
 	}
-	constructor(_habilidad, _grupo, _palabraInspiradora) = super(_habilidad, _grupo) {
+	constructor(_habilidad, _grupo, _palabraInspiradora) = 
+	super(_habilidad, _grupo) {
 		palabraInspiradora = _palabraInspiradora
 	}
-	constructor(_habilidad, _grupo, _albumes, _palabraInspiradora) = super(_habilidad, _grupo, _albumes) {
+	constructor(_habilidad, _grupo, _albumes, _palabraInspiradora) = 
+	super(_habilidad, _grupo, _albumes) {
 		palabraInspiradora = _palabraInspiradora
 	}
 	override method habilidad() {
