@@ -26,19 +26,20 @@ object presentacionDos {
 class Presentacion {
 	const fecha
 	const lugar
-	const musicos
+	var musicos
 	constructor(_fecha, _lugar, _musicos) {
 		fecha = _fecha
 		lugar = _lugar
 		musicos = _musicos
-		
 	}
 	method fecha() = fecha
 	method lugar() = lugar
 	method costo() {
 		return musicos.map({unMusico => unMusico.cachet(self)}).sum()
 	}
-	
+	method musicos(_musicos) {
+		musicos = _musicos
+	}
 }
 
 //object presentacionUno inherits Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia}) {}

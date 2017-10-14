@@ -1,0 +1,114 @@
+import musicos.*
+import guitarras.*
+import canciones.*
+import lugares.*
+import presentaciones.*
+import albumes.*
+
+describe "Tests Entrega 2" {
+	const laFamilia
+	const cisne
+	const eres
+	const corazonAmericano
+	const almaDeDiamante
+	const crisantemo
+	
+	const especialLaFamilia
+	const laSole
+	const justCrisantemo
+	const paraLosArboles
+	
+	const joaquin
+	const lucia
+	const kike
+	const soledad
+	
+	const presentacionUno
+	const presentacionDos
+	
+	fixture {
+		laFamilia = new Cancion(264, "La Familia", "Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
+		cisne = new Cancion(312, "Cisne", "Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
+		eres = new Cancion(145, "Eres", "Eres lo mejor que me pasó en la vida, no tengo duda, no habrá más nada después de ti. Eres lo que le dio brillo al día a día, y así será por siempre, no cambiará, hasta el final de mis días.")
+		corazonAmericano = new Cancion(154, "Corazon Americano", "Canta corazón, canta más alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazón, como soñamos.")
+		almaDeDiamante = new Cancion(216, "Alma De Diamante", "Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
+		crisantemo =  new Cancion(175, "Crisantemo", "Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
+		
+		especialLaFamilia = new Album("Especial La Familia", 
+			#{laFamilia}, 89000, 100000, new Date(17, 6, 1992)
+		)
+		laSole = new Album("La Sole", #{eres, corazonAmericano}, 
+			130000, 200000, new Date(4, 2, 2005)
+		)
+		justCrisantemo = new Album("Just Crisantemo", #{crisantemo}, 
+			27500, 28000, new Date(5, 12, 2007)
+		)
+		paraLosArboles = new Album("Para Los Arboles", #{cisne, almaDeDiamante}, 
+			49000, 50000, new Date(31, 3, 2003)
+		)
+		
+		lucia = new VocalistaPopular(70, "familia")
+		lucia.unirseAGrupo("Pimpinela")
+		joaquin = new MusicoDeGrupo(20, 5)
+		joaquin.unirseAGrupo("Pimpinela")
+		joaquin.agregarAlbum(especialLaFamilia)
+		kike = new MusicoDeGrupo(60, 20)
+		soledad = new VocalistaPopular(55, "amor")
+		soledad.agregarAlbum(laSole)
+		luis.agregarAlbum(justCrisantemo)
+		luis.agregarAlbum(paraLosArboles)
+		
+		presentacionUno = new Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia})
+		presentacionDos = new Presentacion(new Date(15,11,2017), laTrastienda, #{luis, joaquin, lucia})
+		
+	}
+	
+	test "La canción “Crisantemo” es corta" {
+		assert.that(crisantemo.corta())
+	}
+	test "La canción “AlmaDeDiamante” no es corta" {
+		assert.notThat(almaDeDiamante.corta())
+	}
+	test "Soledad es minimalista" {
+		assert.that(soledad.minimalista())
+	}
+	test "Luis Alberto no es minimalista" {
+		assert.notThat(luis.minimalista())
+	}
+	test "Joaquin no es minimalista" {
+		assert.notThat(joaquin.minimalista())
+	}
+	test "“Crisantemo” y “Alma de diamante” son las canciones de Luis Alberto con la palabra “cielo”" {
+		assert.equals(#{crisantemo, almaDeDiamante}, luis.cancionesConPalabra("cielo"))
+	}
+	test "No hay canciones de Luis Alberto con la palabra “pujante”" {
+		assert.equals(#{}, luis.cancionesConPalabra("pujante"))
+	}
+	test "La obra maestra de Kike dura 0 segundos" {
+		assert.equals(0, kike.duracionObraMaestra())
+	}
+	test "La obra maestra de Soledad dura 299 segundos" {
+		assert.equals(299, soledad.duracionObraMaestra())
+	}
+	test "La obra maestra de Luis Alberto dura 703 segundos" {
+		assert.equals(703, luis.duracionObraMaestra())
+	}
+	test "La cancion mas larga del album “Para los arboles” es “Alma de Diamante”" {
+		assert.equals(almaDeDiamante, paraLosArboles.cancionMasLarga())
+	}
+	test "La cancion mas larga del album “La Sole” es “Eres”" {
+		assert.equals(eres, laSole.cancionMasLarga())
+	}
+	test "La cancion mas larga del album “Especial La Familia” es “La Familia”" {
+		assert.equals(laFamilia, especialLaFamilia.cancionMasLarga())
+	}
+	test "Luis Alberto “la pego”" {
+		assert.that(luis.laPego())
+	}
+	test "Soledad no “la pego”" {
+		assert.notThat(soledad.laPego())
+	}
+	test "Joaquin “la pego”" {
+		assert.that(joaquin.laPego())
+	}
+}
