@@ -13,8 +13,10 @@ class Musico {
 	constructor(_habilidad, _grupo, _albumes)  = self(_habilidad, _grupo) {
 		albumes = _albumes
 	}
-	method habilidad() {return habilidad}
-	method solista() {return grupo!=""}
+	method habilidad()=habilidad
+	method solista() {
+		return grupo!=""
+	}
 	method estaEnGrupo() {
 		return grupo!=""
 	}
@@ -123,7 +125,7 @@ class VocalistaPopular inherits Musico {
 		return 400
 	}
 }
-object luis inherits Musico {
+object luis inherits Musico(0, "", #{})  {
 	//Los instrumentos que tiene LuisAlberto
 	var instrumentos = #{fender,gibson} 
 	const fechaSentinela = new Date(1,9,2017)
