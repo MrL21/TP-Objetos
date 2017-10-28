@@ -27,6 +27,9 @@ describe "Tests Entrega 3" {
 	const presentacionUno
 	const presentacionDos
 	
+	const remixLaFamilia
+	const mashUpAlmaYCrisantemo
+	
 	fixture {
 		laFamilia = new Cancion(264, 
 		"La Familia", "Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
@@ -66,6 +69,11 @@ describe "Tests Entrega 3" {
 		presentacionDos = new Presentacion(new Date(15,11,2017), 
 			laTrastienda, #{luis, joaquin, lucia}
 		)
+		
+		remixLaFamilia = new Remix (0,"","",laFamilia)
+		mashUpAlmaYCrisantemo = new MashUp (0,"","",#{almaDeDiamante,crisantemo})
+		
+		
 	}
 	
 	test "cuál es la canción más larga del álbum “Especial La Familia”, teniendo en cuenta la duración" {
@@ -79,4 +87,25 @@ describe "Tests Entrega 3" {
 	test "cuál es la canción más larga del álbum “La Sole”, teniendo en cuenta la longitud de la letra" {
 		assert.equals(eres, laSole.cancionMasLargaPor(duracionPorLetra))
 	}
+		
+	test "Saber cuánto dura el remix de “La Familia"{
+		assert.equals(792,remixLaFamilia.duracion() )
+	}
+	
+	test "cuál es la letra del remix de “La Familia"{
+		assert.equals("mueve tu cuelpo baby Quiero brindar por mi gente sencilla, por el amor brindo por la familia yeah oh yeah", remixLaFamilia.letra())
+	}
+	
+	test "cuál es la duración del mashup de “Alma de Diamante” y  “Crisantemo"{
+		assert.equals(216,mashUpAlmaYCrisantemo.duracion())
+	}
+	
+/* 	test "Saber cuál es la letra del mashup entre “Alma de Diamante” y “Crisantemo”"{
+		assert.equals("Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo", mashUpAlmaYCrisantemo.letra())
+	}
+*/	
+
+
+
+	
 }

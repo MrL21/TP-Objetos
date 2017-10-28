@@ -14,3 +14,32 @@ class Cancion {
 	method duracionPorLetra() = letra.length()
 	method letraContiene(palabra) = letra.toLowerCase().contains(palabra)
 }
+
+
+class Remix inherits Cancion{
+	const cancionOriginal
+	constructor(unaDuracion, unTitulo, unaLetra,_cancionOriginal) = super(unaDuracion, unTitulo, unaLetra){
+		cancionOriginal=_cancionOriginal
+	}	
+	override method letra(){
+		return "mueve tu cuelpo baby "+ cancionOriginal.letra() +" yeah oh yeah"
+	}
+	override method duracion(){
+		return cancionOriginal.duracion() * 3
+	}
+}
+
+class MashUp inherits Cancion{
+	const cancionesOriginales
+	constructor(unaDuracion, unTitulo, unaLetra,_cancionesOriginales) = super(unaDuracion, unTitulo, unaLetra){
+		cancionesOriginales=_cancionesOriginales
+	}	
+	override method letra(){
+		return cancionesOriginales.fold("",{ac,cancion=> ac+cancion.letra()+""})
+	}
+	override method duracion(){
+		return cancionesOriginales.map({cancion=>cancion.duracion()}).max()
+	}
+	
+}
+
