@@ -27,10 +27,12 @@ class Presentacion {
 	const fecha
 	const lugar
 	var musicos
-	constructor(_fecha, _lugar, _musicos) {
+	constructor(_fecha, _lugar) {
 		fecha = _fecha
 		lugar = _lugar
-		musicos = _musicos
+	}
+	constructor(_fecha, _lugar, _musicos) = self(_fecha, _lugar) {
+		self.musicos(_musicos)
 	}
 	method fecha() = fecha
 	method lugar() = lugar
@@ -38,10 +40,40 @@ class Presentacion {
 		return musicos.map({unMusico => unMusico.cachet(self)}).sum()
 	}
 	method musicos(_musicos) {
-		musicos = _musicos
+		musicos = #{}
+		_musicos.forEach{musico=>self.agregarMusico(musico)}
+	}
+	method agregarMusico(musico) {
+		musicos.add(musico)
 	}
 }
 
+class Restriccion {
+	const mensajeDeError
+	const restriccionACUmplir
+	constructor(_mensaje, _restriccionACUmplir) {
+		mensaje = _mensaje
+		restriccionACUmplir = _restriccionACUmplir
+	}
+	method cumple(musico) {
+		return restriccionACUmplir.apply(musico)
+	}
+	method mensajeDeError() = mensajeDeError
+}
+class PresentacionConRestricciones inherits Presentacion {
+	var restricciones
+	constructor(_restricciones, _fecha, _lugar, _musicos) = self(_fecha, _lugar) {
+		restricciones = _restricciones
+		self.musicos(_musicos)
+	}
+	override method agregarMusico(musico) {
+		restricciones.forEach{ restriccion =>
+			if(not restriccion.cumple(musico))
+				error.throwWithMessage(restriccion.mensajeDeError())
+		}
+		super(musico)
+	}
+}
 //object presentacionUno inherits Presentacion(new Date(20,4,2017), lunaPark, #{luis, joaquin, lucia}) {}
 //object presentacionDos inherits Presentacion(new Date(15,11,2017), laTrastienda, #{luis, joaquin, lucia}) {}
 
