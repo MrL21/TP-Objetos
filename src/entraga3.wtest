@@ -105,6 +105,31 @@ describe "Tests Entrega 3" {
 	}
 */	
 
+	test "Joaqu�n interpreta bien la canci�n �La Familia�"{
+		assert.that(joaquin.puedeInterpretar(laFamilia))
+	}
+	
+	test "Joaqu�n interpreta bien la canci�n �Cisne�"{
+		assert.that(joaquin.puedeInterpretar(cisne))
+	}
+	
+	test "Luc�a interpreta bien la canci�n �La Familia�"{
+		assert.that(lucia.puedeInterpretar(laFamilia))
+	}
+	
+	test "Lucía canta bien la canción “Cisne” en el grupo Pimpinela"{
+		lucia.unirseAGrupo("Pimpinela")
+		assert.notThat(lucia.puedeInterpretar(cisne))
+	}
+	
+	test "Luis Alberto interpreta bien la canci�n �La Familia�"{
+		assert.that(luis.puedeInterpretar(laFamilia))	
+	}
+	
+	test "Luis Alberto interpreta bien la canci�n �Cisne�"{
+		assert.that(luis.puedeInterpretar(cisne))	
+	}
+	
 
 
 	

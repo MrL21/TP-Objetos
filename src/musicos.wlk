@@ -64,7 +64,9 @@ class Musico {
 		return
 		*/
 	}
-	method puedeInterpretar(cancion)
+	method puedeInterpretar(cancion) {
+		return self.canciones().contains(cancion) or self.habilidad()>60
+	}
 	method cachet(presentacion)
 }
 
@@ -86,7 +88,7 @@ class MusicoDeGrupo inherits Musico {
 		return habilidad
 	}
 	override method puedeInterpretar(cancion) {
-		return cancion.duracion() > 300
+		return super(cancion) or cancion.duracion() > 300
 	}
 	override method cachet(presentacion) {
 		if(self.estaEnGrupo())
@@ -117,7 +119,7 @@ class VocalistaPopular inherits Musico {
 		grupo =""
 	}
 	override method puedeInterpretar(cancion) {
-		return cancion.letraContiene(palabraInspiradora)
+		return super(cancion) or cancion.letraContiene(palabraInspiradora)
 	}
 	override method cachet(presentacion) {
 		if(presentacion.lugar().concurrido(presentacion.fecha()))
