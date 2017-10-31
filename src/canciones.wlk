@@ -38,7 +38,7 @@ class MashUp inherits Cancion{
 		return cancionesOriginales.fold("",{letraMashUp,cancion=> letraMashUp+cancion.letra() + " "}).trim()
 	}
 	override method duracion(){
-		return cancionesOriginales.max({cancion=>cancion.duracion()})
+		return cancionesOriginales.max({cancion=>cancion.duracion()}).duracion()
 	}
 	
 }

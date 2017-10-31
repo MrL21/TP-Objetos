@@ -1,20 +1,25 @@
-
-
-
-object duracion{
+class Criterio{
+	method criterio(cancion)
 	method cancionMasLarga(canciones){
-		return canciones.max({cancion=>cancion.duracion()})
+		return canciones.max({cancion=>self.criterio(cancion)})
 	}
 }
 
-object duracionPorLetra{
-	method cancionMasLarga(canciones){
-		return canciones.max({cancion=>cancion.duracionPorLetra()})
+
+object duracion inherits Criterio{
+	override method criterio(cancion){
+		return cancion.duracion()
 	}
 }
 
-object titulo{
-	method cancionMasLarga(canciones){
-		return canciones.max({cancion=>cancion.titulo().lenth()})
+object duracionPorLetra inherits Criterio{
+	override method criterio(cancion){
+		return	cancion.duracionPorLetra()
+	}
+}
+
+object titulo inherits Criterio{
+	override method criterio(cancion){
+		return cancion.titulo().lenth()
 	}
 }

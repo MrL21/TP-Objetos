@@ -24,7 +24,7 @@ class Album {
 		canciones.addAll(_canciones)
 	}
 	method cancionMasLarga() {
-		return canciones.max{cancion => cancion.duracionPorLetra()}
+		return canciones.max{cancion =>cancion.duracionPorLetra()}
 	}
 	method tieneBuenasVentas() {
 		return unidadesVendidas/unidadesFabricadas > 0.75
