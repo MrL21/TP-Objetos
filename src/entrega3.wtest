@@ -153,28 +153,16 @@ describe "Tests Entrega 3" {
 			pdpalooza.agregarMusico(luis)
 	    }
 	    catch e {
-	      assert.fail("No se puede agregar a Luis Alberto al pdpalooza ya que: "+ e.getMessage())
+	    	assert.fail("No se puede agregar a Luis Alberto al pdpalooza ya que: "+ e.getMessage())
 	    }
 	}
 
 	test "No se puede agregar a Joaquín al Pdpalooza ya que tiene 20 puntos de habilidad < 70 que es el requerido" {
-	    try {
-			pdpalooza.agregarMusico(joaquin)
-	      assert.fail("Se pudo agregar a Luis Alberto al pdpalooza")
-	    }
-	    catch e {
-    		assert.equals(true, true)
-	    }
+		assert.throwsException{pdpalooza.agregarMusico(joaquin)}
 	}
 	test "No se puede agregar a Lucia con habilidad base aumentada a 90 al Pdpalooza ya que no tiene canciones como solista" {
 	    lucia.habilidad(90)
-	    try {
-			pdpalooza.agregarMusico(lucia)
-	      	assert.fail("Se pudo agregar a Lucia con habilidad base aumentada a 90 al pdpalooza")
-	    }
-	    catch e {
-    		assert.equals(true, true)
-	    }
+		assert.throwsException{pdpalooza.agregarMusico(lucia)}
 	}
 	test "Se puede agregar a Soledad con habilidad base aumentada a 80 al Pdpalooza" {
 	    soledad.habilidad(80)
