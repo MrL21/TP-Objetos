@@ -13,6 +13,7 @@ describe "Tests Entrega 3" {
 	const corazonAmericano
 	const almaDeDiamante
 	const crisantemo
+	const aliciaEnElPais
 	
 	const especialLaFamilia
 	const laSole
@@ -26,23 +27,26 @@ describe "Tests Entrega 3" {
 	
 	const presentacionUno
 	const presentacionDos
+	const pdpalooza
 	
 	const remixLaFamilia
 	const mashUpAlmaYCrisantemo
+	
+	const restricciones
 	
 	fixture {
 		laFamilia = new Cancion(264, 
 		"La Familia", "Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
 		cisne = new Cancion(312, "Cisne", 
-		"Hoy el viento se abri� qued� vac�o el aire una vez más y el manantial brot� y nadie est� aqu� y puedo ver que solo estallan las hojas al brillar")
+		"Hoy el viento se abriï¿½ quedï¿½ vacï¿½o el aire una vez mÃ¡s y el manantial brotï¿½ y nadie estï¿½ aquï¿½ y puedo ver que solo estallan las hojas al brillar")
 		eres = new Cancion(145, "Eres", 
-		"Eres lo mejor que me pas� en la vida, no tengo duda, no habr� m�s nada despu�s de ti. Eres lo que le dio brillo al d�a a d�a, y as� ser� por siempre, no cambiar�, hasta el final de mis d�as.")
+		"Eres lo mejor que me pasï¿½ en la vida, no tengo duda, no habrï¿½ mï¿½s nada despuï¿½s de ti. Eres lo que le dio brillo al dï¿½a a dï¿½a, y asï¿½ serï¿½ por siempre, no cambiarï¿½, hasta el final de mis dï¿½as.")
 		corazonAmericano = new Cancion(154, 
-		"Corazon Americano", "Canta corazón, canta más alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto coraz�n, como so�amos.")
+		"Corazon Americano", "Canta corazÃ³n, canta mÃ¡s alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazï¿½n, como soï¿½amos.")
 		almaDeDiamante = new Cancion(216, 
-		"Alma De Diamante", "Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
+		"Alma De Diamante", "Ven a mÃ­ con tu dulce luz alma de diamante. Y aunque el sol se nuble despuÃ©s sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asÃ­ con la humanidad alma de diamante")
 		crisantemo =  new Cancion(175, 
-		"Crisantemo", "Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
+		"Crisantemo", "TÃ³came junto a esta pared, yo quede por aquÃ­... cuando no hubo mÃ¡s luz... quiero mirar a travÃ©s de mi piel... Crisantemo, que se abriÃ³... encuentra el camino hacia el cielo")
 		
 		especialLaFamilia = new Album("Especial La Familia", 
 			#{laFamilia}, 89000, 100000, new Date(17, 6, 1992)
@@ -74,63 +78,114 @@ describe "Tests Entrega 3" {
 		mashUpAlmaYCrisantemo = new MashUp (0,"","",[almaDeDiamante,crisantemo])
 		
 		
+		aliciaEnElPais = new Cancion(511, "Cancion de Alicia en el pais", "Quien sabe Alicia, este pais no estuvo hecho porque si. Te vas a ir, vas a salir pero te quedas, ¿donde más vas a ir? Y es que aqui, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabo ese juego que te hacia feliz.")
+		restricciones = #{
+			new Restriccion ("Habilidad menor a 70", 
+				{musico=> return musico.habilidad()>70}
+			), 
+			new Restriccion ("No compuso ninguna cancion", 
+				{musico=> return musico.compusoAlgunaCancion()}
+			),
+			new Restriccion ("No puede interpretar la cancion de alicia", 
+				{musico=> return musico.puedeInterpretar(aliciaEnElPais)}
+			)
+		}
+		pdpalooza = new PresentacionConRestricciones(restricciones, new Date(15, 12, 2017), lunaPark, #{})
+		
 	}
 	
-	test "cuál es la canción más larga del álbum “Especial La Familia”, teniendo en cuenta la duración" {
+	test "cuÃ¡l es la canciÃ³n mÃ¡s larga del Ã¡lbum â€œEspecial La Familiaâ€�, teniendo en cuenta la duraciÃ³n" {
 		assert.equals(laFamilia, especialLaFamilia.cancionMasLargaPor(duracion))
 	}
 	
-	test "cuál es la canción más larga del álbum “La Sole”, teniendo en cuenta la duración" {
+	test "cuÃ¡l es la canciÃ³n mÃ¡s larga del Ã¡lbum â€œLa Soleâ€�, teniendo en cuenta la duraciÃ³n" {
 		assert.equals(corazonAmericano, laSole.cancionMasLargaPor(duracion))
 	}
 	
-	test "cuál es la canción más larga del álbum “La Sole”, teniendo en cuenta la longitud de la letra" {
+	test "cuÃ¡l es la canciÃ³n mÃ¡s larga del Ã¡lbum â€œLa Soleâ€�, teniendo en cuenta la longitud de la letra" {
 		assert.equals(eres, laSole.cancionMasLargaPor(duracionPorLetra))
 	}
 		
-	test "Saber cuánto dura el remix de “La Familia"{
+	test "Saber cuÃ¡nto dura el remix de â€œLa Familia"{
 		assert.equals(792,remixLaFamilia.duracion() )
 	}
 	
-	test "cuál es la letra del remix de “La Familia"{
+	test "cuÃ¡l es la letra del remix de â€œLa Familia"{
 		assert.equals("mueve tu cuelpo baby Quiero brindar por mi gente sencilla, por el amor brindo por la familia yeah oh yeah", remixLaFamilia.letra())
 	}
 	
-	test "cuál es la duración del mashup de “Alma de Diamante” y  “Crisantemo"{
+	test "cuÃ¡l es la duraciÃ³n del mashup de â€œAlma de Diamanteâ€� y  â€œCrisantemo"{
 		assert.equals(216,mashUpAlmaYCrisantemo.duracion())
 	}
 	
- 	test "Saber cuál es la letra del mashup entre “Alma de Diamante” y “Crisantemo”"{
-		assert.equals("Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo", mashUpAlmaYCrisantemo.letra())
+ 	test "Saber cuÃ¡l es la letra del mashup entre â€œAlma de Diamanteâ€� y â€œCrisantemoâ€�"{
+		assert.equals("Ven a mÃ­ con tu dulce luz alma de diamante. Y aunque el sol se nuble despuÃ©s sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asÃ­ con la humanidad alma de diamante TÃ³came junto a esta pared, yo quede por aquÃ­... cuando no hubo mÃ¡s luz... quiero mirar a travÃ©s de mi piel... Crisantemo, que se abriÃ³... encuentra el camino hacia el cielo", mashUpAlmaYCrisantemo.letra())
 	}
 
 
-	test "Joaqu�n interpreta bien la canci�n �La Familia�"{
+	test "Joaquï¿½n interpreta bien la canciï¿½n ï¿½La Familiaï¿½"{
 		assert.that(joaquin.puedeInterpretar(laFamilia))
 	}
 	
-	test "Joaqu�n interpreta bien la canci�n �Cisne�"{
+	test "Joaquï¿½n interpreta bien la canciï¿½n ï¿½Cisneï¿½"{
 		assert.that(joaquin.puedeInterpretar(cisne))
 	}
 	
-	test "Luc�a interpreta bien la canci�n �La Familia�"{
+	test "Lucï¿½a interpreta bien la canciï¿½n ï¿½La Familiaï¿½"{
 		assert.that(lucia.puedeInterpretar(laFamilia))
 	}
 	
-	test "Lucía canta bien la canción “Cisne” en el grupo Pimpinela"{
+	test "LucÃ­a canta bien la canciÃ³n â€œCisneâ€� en el grupo Pimpinela"{
 		lucia.unirseAGrupo("Pimpinela")
 		assert.notThat(lucia.puedeInterpretar(cisne))
 	}
 	
-	test "Luis Alberto interpreta bien la canci�n �La Familia�"{
+	test "Luis Alberto interpreta bien la canciï¿½n ï¿½La Familiaï¿½"{
 		assert.that(luis.puedeInterpretar(laFamilia))	
 	}
 	
-	test "Luis Alberto interpreta bien la canci�n �Cisne�"{
+	test "Luis Alberto interpreta bien la canciï¿½n ï¿½Cisneï¿½"{
 		assert.that(luis.puedeInterpretar(cisne))	
 	}
 	
+	test "Luis Alberto se debe poder agregar al Pdpalooza" {
+	    try {
+			pdpalooza.agregarMusico(luis)
+	    }
+	    catch e {
+	      assert.fail("No se puede agregar a Luis Alberto al pdpalooza ya que: "+ e.getMessage())
+	    }
+	}
 
+	test "No se puede agregar a Joaquín al Pdpalooza ya que tiene 20 puntos de habilidad < 70 que es el requerido" {
+	    try {
+			pdpalooza.agregarMusico(joaquin)
+	      assert.fail("Se pudo agregar a Luis Alberto al pdpalooza")
+	    }
+	    catch e {
+    		assert.equals(true, true)
+	    }
+	}
+	test "No se puede agregar a Lucia con habilidad base aumentada a 90 al Pdpalooza ya que no tiene canciones como solista" {
+	    lucia.habilidad(90)
+	    try {
+			pdpalooza.agregarMusico(lucia)
+	      	assert.fail("Se pudo agregar a Lucia con habilidad base aumentada a 90 al pdpalooza")
+	    }
+	    catch e {
+    		assert.equals(true, true)
+	    }
+	}
+	test "Se puede agregar a Soledad con habilidad base aumentada a 80 al Pdpalooza" {
+	    soledad.habilidad(80)
+	    try {
+			pdpalooza.agregarMusico(soledad)
+    		assert.equals(true, true)
+	    }
+	    catch e {
+    		assert.fail("No se pudo agregar a Soledad con habilidad base aumentada a 90 al pdpalooza ya que: "+ e.getMessage())
+	    }
+	}
 
 	
 }

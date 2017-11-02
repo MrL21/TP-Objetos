@@ -14,6 +14,9 @@ class Musico {
 		albumes = _albumes
 	}
 	method habilidad()=habilidad
+	method habilidad(_habilidad) {
+		habilidad =_habilidad
+	}
 	method solista() {
 		return grupo!=""
 	}
@@ -40,6 +43,9 @@ class Musico {
 		var canciones = #{}
 		albumes.forEach{album => canciones.addAll(album.canciones())}
 		return canciones
+	}
+	method compusoAlgunaCancion() {
+		return self.canciones().size() >0
 	}
 	method cancionesConPalabra(palabra) {
 		return self.canciones().filter{cancion => return cancion.letraContiene(palabra)}
@@ -127,7 +133,7 @@ class VocalistaPopular inherits Musico {
 		return 400
 	}
 }
-object luis inherits Musico(0, "", #{})  {
+object luis inherits Musico(80, "", #{})  {
 	//Los instrumentos que tiene LuisAlberto
 	var instrumentos = #{fender,gibson} 
 	const fechaSentinela = new Date(1,9,2017)
